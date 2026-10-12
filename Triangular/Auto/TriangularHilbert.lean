@@ -986,11 +986,4 @@ theorem triangularHilbert_main : ∃ C : ℝ, 0 ≤ C ∧
 
 end
 
-#print axioms triangular_gaussian_scale_bound
-#print axioms triangular_scale_tendsto
-#print axioms triangularHilbertTruncation_integrable
-#print axioms triangularHilbertLinear
-#print axioms triangularHilbert_unique_extension
-#print axioms triangularHilbert_main
-
 end Auto

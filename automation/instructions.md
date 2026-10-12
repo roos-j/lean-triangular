@@ -4,7 +4,7 @@ User prompts are preserved in [raw.md](raw.md), with local recording timestamps.
 Formalize Theorem 1 of `blueprint/source.tex`: the Schwartz principal-value bound
 and its unique bounded trilinear extension to L3(R2)^3. Keep `source.tex` ignored.
 Use namespace `Auto` and `Triangular/Auto/TriangularHilbert.lean`.
-Initial commits: setup (7a004e2), completion (ca0719e). The user now requests a cleanup commit.
+Initial commits: setup (7a004e2), completion (6ca5589). The user now requests a cleanup commit.
 No push was requested. The existing origin configuration is preserved.
 
 The user's later directions requested Git status, explanation and correction of
@@ -54,3 +54,22 @@ Every Lean docstring is one line. All existing theorem signatures are unchanged.
 Shared coordinate-change algebra replaces duplicate proofs; routine tactics are compacted.
 Direct Lean check and full lake build passed (9028 jobs); retained transitive audits
 report only propext, Classical.choice, Quot.sound. Mathematical statuses remain complete.
+
+Follow-up 2026-10-12T14:52:16.2995580-04:00 : remove persistent axiom-printing and other unnecessary diagnostics.
+Run verification separately; do not leave diagnostic commands in the proof source.
+
+Standing user preference: one descriptive subject line, a blank separator, and the required co-author trailer. No explanatory commit body. Retain co-author attribution.
+
+Correction recorded 2026-10-12T14:54:49.5960564-04:00 : the co-author trailer is explicitly desired.
+The earlier no-trailer interpretation was incorrect and has been removed from both skills.
+Both updated skills pass validation. Diagnostic cleanup build passed (9028 jobs);
+the proof file is 989 lines with no persistent diagnostic commands.
+
+History rewrite authorized 2026-10-12T14:55:28.9729086-04:00 : fix existing repository commit messages
+to retain one descriptive subject and co-author attribution only. Preserve trees,
+author/committer metadata, and working changes; do not push rewritten history.
+
+Local message-only rewrite: ca0719e -> 6ca5589; 33f3731 -> 6ce1063.
+The setup commit 7a004e2 was already correctly formatted and is unchanged.
+All original trees, author/committer identities, and timestamps were verified equal.
+Remote-tracking refs were preserved; no rewritten commits were pushed.
