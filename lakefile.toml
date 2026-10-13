@@ -10,8 +10,3 @@ rev = "v4.35.0-rc4"
 
 [[lean_lib]]
 name = "Triangular"
-
-[[require]]
-name = "lean-twocommuting"
-git = "https://github.com/roos-j/lean-twocommuting.git"
-rev = "33b69ccacc013c703a151421658187ea4d2029fb"

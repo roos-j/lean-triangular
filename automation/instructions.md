@@ -1,5 +1,23 @@
 # Operative instructions
 
+Current task: develop a new, shorter formalization from scratch in
+Triangular/Auto/TriangularHT.lean, closely following blueprint/source.tex.
+TriangularHilbertOld.lean is the user's preserved full formalization and may
+be consulted; preserve it. Only Mathlib imports are permitted in the new file.
+Reduce proof machinery, not whitespace. Use proper Mathlib-style blank lines,
+readable multiline signatures, and consistent indentation. Do not copy attribution comments
+about lean-twocommuting into the new file. The new targets include the same
+principal-value bound and unique bounded L3 extension. The user now authorizes committing the completed work and force-pushing master to origin.
+No compatible local recurring-job tool is available in this session.
+
+The new proof uses a direct fixed-interval heat-energy estimate, finite matrix
+normalization, lattice approximation in source coordinates, compact cutoffs,
+and the explicit Gaussian primitive. It omits output-dependent intervals,
+counting estimates, and bilinear duality. The root Triangular.lean imports the
+new file. Preserve normal Mathlib-style spacing and one-line docstrings.
+
+# Historical instructions for the previous formalization
+
 User prompts are preserved in [raw.md](raw.md), with local recording timestamps.
 Formalize Theorem 1 of `blueprint/source.tex`: the Schwartz principal-value bound
 and its unique bounded trilinear extension to L3(R2)^3. Keep `source.tex` ignored.
@@ -44,7 +62,7 @@ report only `propext`, `Classical.choice`, and `Quot.sound`.
 - `Auto.triangularHilbert_unique_extension`: existence, the same norm bound,
   agreement on Schwartz triples, and uniqueness among bounded trilinear forms.
 
-All requested mathematical targets are complete. No further proof step remains.
+Historical result for the superseded dependency-based route: all then-requested targets passed.
 
 Cleanup requested 2026-10-12T11:03:29.4818384-04:00 : streamline the proof file below 1000 lines,
 shorten every docstring to one line, preserve the results, verify, then commit again.
@@ -73,3 +91,161 @@ Local message-only rewrite: ca0719e -> 6ca5589; 33f3731 -> 6ce1063.
 The setup commit 7a004e2 was already correctly formatted and is unchanged.
 All original trees, author/committer identities, and timestamps were verified equal.
 Remote-tracking refs were preserved; no rewritten commits were pushed.
+
+Presentation request (2026-10-12T14:57:14.7638278-04:00): use named x, y, z coordinates in triangularHilbert_main
+instead of nested projections, preserving its mathematical statement and proof.
+
+Presentation follow-up (2026-10-12T14:59:03.6693864-04:00): remove redundant real/complex type annotations
+in the main theorem's denominator, retaining only the necessary coercion.
+
+Dependency correction (2026-10-12T15:02:08.6239488-04:00): only Mathlib may be an external dependency.
+This supersedes the earlier lean-twocommuting package reuse decision. Remove that
+package and imports, preserve the main results, and verify a Mathlib-only build.
+Current work: inspect prerequisite closure; local adaptation versus a new source-directed
+proof has been presented to the user for clarification.
+
+Source-route correction (2026-10-12T15:06:04.3595683-04:00): develop a new proof directly from blueprint/source.tex.
+Do not copy, port, or adapt the TwoCommuting proofs into local modules. Mathlib is the
+only permitted external dependency. Earlier completion reports describe the superseded route.
+The current Mathlib-only formalization is incomplete. Start with Section 1's matrix inequalities.
+Source-section split: Triangular/Auto/Sec1MatrixInequalities.lean covers Section 1;
+its separate development replaces the disallowed imported matrix prerequisites.
+
+
+Immediate dependency removal (2026-10-12T15:09:07.6444224-04:00): remove the forbidden package from lakefile.toml
+and the manifest now, before completing its replacement. The old main proof will not build
+until the source-directed replacement is finished.
+
+Dependency configuration verified (2026-10-12T15:11:01.4086743-04:00): lake update completed successfully;
+lakefile.toml and lake-manifest.json contain no TwoCommuting dependency. Mathlib's
+revision is unchanged. The new Section 1 module passes a direct Lean check with
+this configuration. Its positivity and Cauchy-Schwarz audits report only propext,
+Classical.choice, and Quot.sound. The old main proof still imports TwoCommuting
+and must be replaced; the overall formalization remains incomplete.
+
+Current source and file restrictions (2026-10-12T16:09:49.348402-04:00): use only blueprint/source.tex
+as the mathematical proof source and Mathlib as the library dependency. Consolidate
+all proof development into Triangular/Auto/TriangularHilbert.lean. This supersedes
+the source-section split recorded above. No other repository proofs may be consulted.
+
+Single-file work (2026-10-12T16:17:02.759731-04:00): the separate Section 1 file was consolidated and
+removed. TriangularHilbert.lean now imports only Mathlib. Checked its matrix prefix
+through the square-root and trace-power first derivatives and the differentiated
+gradient formula. The full file still contains unresolved old Gaussian declarations;
+no claim of a successful whole-file build is made. Next: supported Hessian and order.
+
+Matrix verification (2026-10-12T16:28:22.897269-04:00): the single-file prefix through
+matrixHessianEnergy_three_supports passes Lean. The supported Hessian-order theorem
+and trace-power first-derivative theorem have only propext, Classical.choice, and
+Quot.sound in their audits. The trace-cube spectral bound is under development.
+Supported trace-power differentiation and the heat-flow argument remain unfinished.
+
+Source-only verification (2026-10-12T16:59:06.196745-04:00): matrix_cyclic_trace_bound passes
+its transitive axiom check with only propext, Classical.choice, and Quot.sound.
+It retains the source constant 5/3 in the three-projection formulation. Work now
+addresses the block-diagonal Hessian comparison in Section 2, absorb. These are
+prefix checks; the complete file and main theorem have not been repaired yet.
+
+## 2026-10-12T17:20:52.203315-04:00 - single-file matrix verification
+
+All new source-directed code remains in Triangular/Auto/TriangularHilbert.lean.
+The matrix prefix passes Lean, including fixed-support first/Hessian derivatives,
+supported order comparison, the cyclic trace bound with constant 5/3, and
+neighboring energy absorption. Audits through stdin use only propext,
+Classical.choice, and Quot.sound. The scalar dissipation absorption is checked.
+The Gaussian heat identities and center-plane integration still require work;
+the old analytic tail remains unresolved, so no full-build completion is claimed.
+
+Gaussian verification (2026-10-12T17:23:36.695925-04:00): the combined
+new prefix through triangularDifferentiatedGaussian_eq_deriv passes Lean.
+It includes Gaussian normalization, first and second spatial derivatives,
+the variance heat equation, and the center derivative. Audits contain only
+standard axioms. The finite-rank energy heat identities, center integration,
+and replacement of the old analytic tail remain unfinished. The sole proof
+file has 2711 lines; the earlier sub-1000-line cleanup target is not met by
+this in-progress replacement. No new commit was made.
+
+## 2026-10-12T18:11:24.602041-04:00 - explicit continuation
+
+The user instructs completion of the whole job, without stopping at milestones.
+Continue the source-only, Mathlib-only proof in the single authorized file through
+the main theorem and full verification. No additional scheduling tool is available.
+
+## 2026-10-12T18:37:49.408530-04:00 - Gaussian Gram heat development
+
+The new prefix now checks weighted Gram positivity, strict positivity for
+independent finite families, differentiation under the compactly supported
+Gaussian integrals, and the full three-center vertex energy heat identity.
+Its transitive axiom audit is standard. The mixed-center identity is being
+checked next. The proof still needs the finite-rank source representation,
+center-plane integration and decay estimates, the integrated bound, kernel
+recovery, and the final extension. The old analytic tail is not repaired yet.
+
+## 2026-10-12T19:15:33.7186001-04:00 - integrated Gaussian vertex bound
+
+The new prefix checks the full vertex heat identity, opposite-center mixed
+derivative, pointwise cubic bound, and integrability and upper bound of the
+vertex energy on the center plane. Transitive audits of these declarations
+use only standard axioms. Uniform center decay and integrated differentiation
+are the current work. Finite-rank representation, integrated dissipation,
+kernel recovery, and the main theorem still require completion; no full build
+or completion is claimed.
+
+## 2026-10-12T19:38:31.9728808-04:00 - center-plane integration by parts verified
+
+The prefix now proves actual center-plane integration by parts for the finite
+Gaussian Gram energy: integrability of the pure and opposite mixed second
+derivatives and equality of their plane integrals. The proof uses Gaussian
+decay, dominated differentiation, and translation invariance; the transitive
+axiom audit is standard. Scale differentiation under the plane integral is
+next. The full main theorem remains incomplete and the old tail unresolved.
+
+## 2026-10-12T19:43:23.6041363-04:00 - local adaptation now authorized
+
+The user now explicitly authorizes inspecting lean-twocommuting and copying
+its needed proofs into Triangular/Auto/TriangularHilbert.lean. This supersedes
+the earlier prohibition on adapting that repository. Mathlib must remain the
+only external dependency, and all proof code must remain in the single file.
+Preserve appropriate attribution for adapted material.
+
+## 2026-10-12T19:53:45.445129-04:00 - local adaptation completed and verified
+
+The required closure of Sections 2-6 of lean-twocommuting, revision
+33b69ccacc013c703a151421658187ea4d2029fb, is adapted directly into the sole proof
+file, with copyright and generation attribution. Unused declarations were
+omitted. This replaces the unfinished source-only scaffold; no TwoCommuting
+import or Lake dependency remains. Mathlib is the only direct package.
+
+The adapted regularized matrix and Gaussian estimates imply the needed uniform
+scale bound. The local Gaussian primitive, Schwartz cancellation, coordinate
+change, and density argument finish exactly the source's principal-value theorem
+and unique bounded complex trilinear L3 extension. The changed Gaussian variance
+only changes the unspecified bound constant. Literal versions of every unused
+intermediate display in the source are not separate targets.
+
+Verification: lake build passed, 9022 jobs, with no warnings. A separate stdin
+audit of triangularHilbert_main, triangularHilbert_unique_extension,
+triangularHilbertTruncation_integrable, cyclic_trace_control,
+HeatData.smeared_plane_dissipation, and Sfin_bound reports only propext,
+Classical.choice, and Quot.sound. The source has no sorry, admit, new axiom,
+or saved diagnostic commands. git diff --check passes. All docstrings are
+single-line. No new commit or push was made during this replacement effort.
+The earlier cleanup commit authorization was already fulfilled by 6ce1063.
+
+## 2026-10-12T20:00:15.671763-04:00 - fresh streamlined proof exercise
+
+The latest prompt starts a new formalization in Triangular/Auto/TriangularHT.lean.
+Keep the old completed proof intact. Plan the shorter source-directed argument
+before implementing it; use only Mathlib imports and omit old repository
+attribution comments. Earlier completion records refer to the old proof.
+
+## 2026-10-12T20:00:50.640949-04:00 - readable Mathlib style required
+
+Use normal Mathlib whitespace and declaration layout in the new file. Line-count
+reduction must come from mathematical simplification, not compressed formatting.
+
+## 2026-10-12T22:00:50.672922-04:00 - commit and force-push authorization
+
+Commit the completed Mathlib-only formalization and supporting changes, then
+force-push the current branch to origin. Use an explicit force-with-lease check.
+Keep one descriptive subject line and the required Codex co-author trailer.
