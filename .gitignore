@@ -60,3 +60,6 @@ automation/raw.md
 
 # Temporarily keep the supplied manuscript local.
 source.tex
+
+# Local Claude Code settings.
+.claude/settings.local.json
