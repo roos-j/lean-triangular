@@ -14,9 +14,3 @@ The compared statements are in `Triangular/Theorems.lean`, with definitions in `
 
 - `Triangular.triangular_ht_bound`: the symmetric principal value of the triangular Hilbert form is bounded on $`L^3\times L^3\times L^3`$ (a priori, for Schwartz functions).
 - `Triangular.classical_carleson`: the Fourier series of a continuous 1-periodic function converges almost everywhere.
-
-## References
-
-- OpenAI, *The maximal triangular Hilbert transform at the symmetric point*, preprint, September 24, 2026, [PDF](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-maximal-triangular-Hilbert-transform-at-the-symmetric-point-September-24-2026/paper.pdf). The formalized bound is the scalar consequence (Proposition 7.4) of its Theorem 1.1.
-- L. Grafakos, D. Oliveira e Silva, M. Pramanik, A. Seeger, B. Stovall, *Some problems in harmonic analysis*, [arXiv:1701.06637](https://arxiv.org/abs/1701.06637), Section 9 (C. Thiele), Problem 13.
-- L. Carleson, *On convergence and growth of partial sums of Fourier series*, Acta Math. **116** (1966), 135-157, [doi:10.1007/BF02392815](https://doi.org/10.1007/BF02392815).
