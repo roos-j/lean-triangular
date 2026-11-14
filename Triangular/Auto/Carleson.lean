@@ -1465,6 +1465,28 @@ theorem carleson {f : ℝ → ℂ} (hf : Continuous f) (hp : Function.Periodic f
 
 end Main
 
+section Statements
+
+/-! Carleson's theorem restated in terms of the definitions in `Triangular.Defs`. -/
+
+theorem fourierPartialSum_eq (f : ℝ → ℂ) (N : ℕ) (x : ℝ) :
+    Triangular.fourierPartialSum f N x = fourierPartialSum f N x := by
+  unfold Triangular.fourierPartialSum fourierPartialSum fourierCoeffOne
+  refine Finset.sum_congr rfl fun n _ => ?_
+  rw [fourierCoeffOn_eq_integral, fourier_coe_apply]
+  simp only [fourier_coe_apply, sub_zero, Complex.ofReal_one, div_one, one_smul, smul_eq_mul,
+    Int.cast_neg]
+  congr 1
+  refine intervalIntegral.integral_congr fun t _ => ?_
+  rw [mul_comm]
+  ring_nf
+
+theorem classical_carleson (f : ℝ → ℂ) (hf : Continuous f) (hper : Function.Periodic f 1) :
+    ∀ᵐ x, Tendsto (fun N ↦ Triangular.fourierPartialSum f N x) atTop (𝓝 (f x)) := by
+  simpa only [fourierPartialSum_eq] using carleson hf hper
+
+end Statements
+
 end
 
 end Auto
