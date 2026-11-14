@@ -5,7 +5,7 @@ version: "v0.4"
 project:
   name: "Formalization of bounds for the triangular Hilbert transform and Carleson's theorem"
   description: >-
-    This is a Lean 4 formalization of `L^3` bounds for the triangular Hilbert
+    This is a Lean 4 formalization of L^3 bounds for the triangular Hilbert
     form, following a streamlined version of an OpenAI manuscript.
     This also gives a proof of Carleson's theorem on pointwise convergence of Fourier series,
     which is also part of this formalization.
