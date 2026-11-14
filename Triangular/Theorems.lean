@@ -9,7 +9,7 @@ public import Triangular.Defs
 public import Mathlib.Analysis.Distribution.SchwartzSpace.Basic
 public import Mathlib.MeasureTheory.Function.LpSeminorm.Defs
 
-import Triangular.Auto.Statements
+import Triangular.Auto.Carleson
 
 /-!
 # Boundedness of the triangular Hilbert transform and Carleson's theorem
