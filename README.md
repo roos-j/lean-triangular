@@ -1,6 +1,11 @@
 # Formalization of bounds for the triangular Hilbert transform
 
-This is a Lean 4 formalization of an $`L^3\times L^3\to L^{3/2}`$ bound for the triangular Hilbert transform.
+This is a Lean 4 formalization of bounds for the triangular Hilbert transform: more precisely, we prove that for all Schwartz functions $`F_0, F_1, F_2`$ on $`\mathbb{R}^2`$,
+```math
+\Big| \mathrm{p.v.} \int_{\mathbb{R}^3} F_0(x, y)\, F_1(y, z)\, F_2(z, x)\, \frac{dx\, dy\, dz}{x + y + z} \Big| \le C\, \|F_0\|_{L^3(\mathbb{R}^2)} \|F_1\|_{L^3(\mathbb{R}^2)} \|F_2\|_{L^3(\mathbb{R}^2)},
+```
+where $`C`$ is an absolute constant (see `Triangular.triangular_ht_bound`).
+
 It follows a streamlined version of the proof contained in a document [recently made public by OpenAI](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-maximal-triangular-Hilbert-transform-at-the-symmetric-point-September-24-2026/paper.pdf). 
 
 The main theorems and definitions in `Defs.lean` and `Theorems.lean` were human-written.
